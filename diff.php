@@ -73,13 +73,14 @@ foreach ($dataOld as $data){
 logs('Loading New...');
 array_push($header, 'Diff');
 $aRes = array($header);
+$cloneaMatrix = $aMatrix;
 foreach ($dataNew as $data){
     $sName = $data[1] . $data[2];
 
-    if (!isset($aMatrix[$sName])){
+    if (!isset($cloneaMatrix[$sName])){
         array_push($data, 'THUA');
     }else{
-        $old = $aMatrix[$sName];
+        $old = $cloneaMatrix[$sName];
         unset($aMatrix[$sName]);
 
         for ($i = 2; $i < count($data); $i++){
