@@ -63,8 +63,8 @@ logs('Loading Old...');
 $aMatrix = array();
 
 foreach ($dataOld as $data){
-    //unset($data[0]);
-    $sName = $data[2] . $data[3];
+    $sName = $data[1] . $data[2];
+
     $aMatrix[$sName] = $data;
 }
 
@@ -74,63 +74,42 @@ logs('Loading New...');
 array_push($header, 'Diff');
 $aRes = array($header);
 foreach ($dataNew as $data){
-    //unset($data[0]);
-    $sName = $data[2] . $data[3];
-
-//	if ($sName == 'CV_HTTD_AQueries/Customer Accounts/BalancesACDABLQY'){
-//		var_dump($data);
-//		var_dump($aMatrix[$sName]);
-//	}
+    $sName = $data[1] . $data[2];
 
     if (!isset($aMatrix[$sName])){
-        array_push($data, 'N/A');
+        array_push($data, 'THUA');
     }else{
-        $diff = false;
         $old = $aMatrix[$sName];
         unset($aMatrix[$sName]);
 
-        $data[4] = (trim($data[4])==trim($old[4]))?'DUNG':'SAI';
-
-        for ($i = 5; $i<=20; $i++){
+        for ($i = 2; $i < count($data); $i++){
             $data[$i] = trim($data[$i]);
             $old[$i] = trim($old[$i]);
 
-            $val = '';
+            $val = 'DUNG';
 
-            if ($data[$i]=='' && $old[$i]=='x'){
+            if ($data[$i]=='' && $old[$i]!=''){
                 $val = 'THIEU';
             }
 
-            if ($data[$i]=='x' && $old[$i]==''){
+            if ($data[$i]!='' && $old[$i]==''){
                 $val = 'THUA';
             }
 
-            if ($data[$i]=='x' && $old[$i]=='x'){
-                $val = 'DUNG';
+            if($val != 'DUNG') {
+                break;
             }
-
-//			if ($sName == 'CV_HTTD_AQueries/Customer Accounts/BalancesACDABLQY') {
-//				printf("%s-%s-%s\r\n", $data[$i], $data[$i], $val);
-//			}
-
-            $diff |= ($data[$i]<>$old[$i]);
-
-            $data[$i] = $val;
         }
 
-        array_push($data, $diff?'SAI':'DUNG');
-//		if ($sName == 'CV_HTTD_AQueries/Customer Accounts/BalancesACDABLQY') {
-//			var_dump($data);
-//			exit();
-//		}
+        array_push($data, $val);
     }
 
     $aRes[] = $data;
 }
 
-while (count($aMatrix)>0){
+while (count($aMatrix) > 0){
     $data = array_shift($aMatrix);
-    array_push($data, 'N/A2');
+    array_push($data, 'THIEU');
     $aRes[] = $data;
 }
 
