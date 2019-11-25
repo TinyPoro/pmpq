@@ -75,11 +75,19 @@ foreach ($dataMatrix as $data){
 
 	if (empty($role)) continue;
 
-	if (!empty($data[5])) $aMatrix[$role][strtoupper($data[5])] = 1;
-	if (!empty($data[6])) $aMatrix[$role][strtoupper($data[6])] = 1;
-	if (!empty($data[7])) $aMatrix[$role][strtoupper($data[7])] = 1;
-	if (!empty($data[8])) $aMatrix[$role][strtoupper($data[8])] = 1;
-	if (!empty($data[9])) $aMatrix[$role][strtoupper($data[9])] = 1;
+	$i = 5;
+
+	while(!empty($data[$i])){
+        $aMatrix[$role][strtoupper($data[$i])] = 1;
+
+        $i++;
+    }
+
+//	if (!empty($data[5]))
+//	if (!empty($data[6])) $aMatrix[$role][strtoupper($data[6])] = 1;
+//	if (!empty($data[7])) $aMatrix[$role][strtoupper($data[7])] = 1;
+//	if (!empty($data[8])) $aMatrix[$role][strtoupper($data[8])] = 1;
+//	if (!empty($data[9])) $aMatrix[$role][strtoupper($data[9])] = 1;
 }
 
 

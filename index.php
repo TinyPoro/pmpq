@@ -52,6 +52,10 @@
 				<div class="col-md-1">
 					<input type="radio" name="funcType" id="crs" value="vista.php?task=upload"> <label for="crs">Vista</label>
 				</div>
+
+                <div class="col-md-1">
+                    <input type="radio" name="funcType" id="diff" value="diff.php?task=upload"> <label for="diff">Diff</label>
+                </div>
 			</div>
 			<div class="form-group row">
 				<label for="inpFile" class="col-md-2">Upload file</label>
