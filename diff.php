@@ -127,9 +127,6 @@ foreach ($dataNew as $data){
             $diff = 'DUNG';
 
             unset($dataOld[$k]);
-            break;
-        } else {
-            continue;
         }
     }
 
