@@ -60,56 +60,87 @@ array_shift($dataNew);
 
 // Load matrix
 logs('Loading Old...');
-$aMatrix = array();
-
-foreach ($dataOld as $data){
-    $sName = $data[1] . $data[2];
-
-    $aMatrix[$sName] = $data;
-}
+//$aMatrix = array();
+//
+//foreach ($dataOld as $data){
+//
+//    $sName = $data[1] . $data[2];
+//
+//    $aMatrix[$sName] = $data;
+//}
 
 
 // Load Real
 logs('Loading New...');
 array_push($header, 'Diff');
 $aRes = array($header);
-$cloneaMatrix = $aMatrix;
+
 foreach ($dataNew as $data){
-    $sName = $data[1] . $data[2];
+//    $sName = $data[1] . $data[2];
 
-    if (!isset($cloneaMatrix[$sName])){
-        array_push($data, 'THUA');
-    }else{
-        $old = $cloneaMatrix[$sName];
-        unset($aMatrix[$sName]);
+//    if (!isset($cloneaMatrix[$sName])){
+//        array_push($data, 'THUA');
+//    }else{
+//        $old = $cloneaMatrix[$sName];
+//        unset($aMatrix[$sName]);
+//
+//        for ($i = 2; $i < count($data); $i++){
+//            $data[$i] = trim($data[$i]);
+//            $old[$i] = trim($old[$i]);
+//
+//            $val = 'DUNG';
+//
+//            if ($data[$i]=='' && $old[$i]!=''){
+//                $val = 'THIEU';
+//            }
+//
+//            if ($data[$i]!='' && $old[$i]==''){
+//                $val = 'THUA';
+//            }
+//
+//            if($val != 'DUNG') {
+//                break;
+//            }
+//        }
+//
+//        array_push($data, $val);
+//    }
 
-        for ($i = 2; $i < count($data); $i++){
+    $diff = 'THUA';
+
+    foreach ($dataOld as $k => $oldData){
+        $val = true;
+
+        for($i = 1; $i < count($data); $i++){
             $data[$i] = trim($data[$i]);
-            $old[$i] = trim($old[$i]);
+            $compare = trim($oldData[$i]);
 
-            $val = 'DUNG';
-
-            if ($data[$i]=='' && $old[$i]!=''){
-                $val = 'THIEU';
-            }
-
-            if ($data[$i]!='' && $old[$i]==''){
-                $val = 'THUA';
-            }
-
-            if($val != 'DUNG') {
+            if ($data[$i] == $compare){
+                continue;
+            } else {
+                $val = false;
                 break;
             }
         }
 
-        array_push($data, $val);
+        if($val == true){
+            $diff = 'DUNG';
+
+            unset($dataOld[$k]);
+            break;
+        } else {
+            continue;
+        }
     }
+
+
+    array_push($data, $diff);
 
     $aRes[] = $data;
 }
 
-while (count($aMatrix) > 0){
-    $data = array_shift($aMatrix);
+while (count($dataOld) > 0){
+    $data = array_shift($dataOld);
     array_push($data, 'THIEU');
     $aRes[] = $data;
 }
