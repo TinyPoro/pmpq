@@ -124,6 +124,31 @@ foreach ($aMatrix as $miniAMatrix){
     $leftOld = array_merge($leftOld, $miniAMatrix);
 }
 
+$leftOld = array_values($leftOld);
+foreach ($leftOld as $k => $left){
+    for($i = 0; $i < $k; $i++){
+        if(!array_key_exists($i, $leftOld)) continue;
+
+        $check = $leftOld[$i];
+
+        $diff = false;
+
+        for($j = 1; $j < count($left); $j++){
+            if($left[$j] == $check[$j]){
+                continue;
+            } else {
+                $diff = true;
+                break;
+            }
+        }
+
+        if($diff == false){
+            unset($leftOld[$k]);
+            break;
+        }
+    }
+}
+
 while (count($leftOld) > 0){
     $data = array_shift($leftOld);
     array_push($data, 'THIEU');
