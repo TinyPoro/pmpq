@@ -27,6 +27,8 @@ $uploadFile = $uploadDir . '/data.xlsx';
 $task = isset($_REQUEST['task'])?$_REQUEST['task']:'';
 
 if ($task == 'upload'){
+    exec("rm tmp/*.xlsx");
+
     if (!move_uploaded_file($_FILES['inpFile']['tmp_name'], $uploadFile)) {
         header('Location: diff.php?error=1');
     }
