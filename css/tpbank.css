@@ -10,6 +10,7 @@ body {
 
 input, .btn{
   color: rgba(102, 51, 153, 1) !important;
+  font-weight: bold;
 }
 
 .page-content {
