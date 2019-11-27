@@ -53,7 +53,7 @@
 <!--					<input type="radio" name="funcType" id="crs" value="vista.php?task=upload"> <label for="crs">Vista</label>-->
 <!--				</div>-->
 
-                <div class="col-md-1">
+                <div class="col-md-2">
                     <input type="radio" name="funcType" id="diff" value="diff.php?task=upload"> <label for="diff">ROLE >< MATRIX</label>
                 </div>
 			</div>
