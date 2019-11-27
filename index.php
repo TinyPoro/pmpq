@@ -39,22 +39,22 @@
 					<input type="radio" name="funcType" id="step2" value="step2.php?task=upload" checked="checked">
 					<label for="step2">USER >< MATRIX</label>
 				</div>
-				<div class="col-md-2">
-					<input type="radio" name="funcType" id="rolefcc" value="rolefcc_step2.php?task=upload"> <label
-						for="rolefcc">ROLE >< MATRIX</label>
-				</div>
+<!--				<div class="col-md-2">-->
+<!--					<input type="radio" name="funcType" id="rolefcc" value="rolefcc_step2.php?task=upload"> <label-->
+<!--						for="rolefcc">ROLE >< MATRIX</label>-->
+<!--				</div>-->
 
-				<div class="col-md-1">
-					<input type="radio" name="funcType" id="crs" value="crs.php?task=upload"> <label
-						for="crs">CRS</label>
-				</div>
+<!--				<div class="col-md-1">-->
+<!--					<input type="radio" name="funcType" id="crs" value="crs.php?task=upload"> <label-->
+<!--						for="crs">CRS</label>-->
+<!--				</div>-->
 
-				<div class="col-md-1">
-					<input type="radio" name="funcType" id="crs" value="vista.php?task=upload"> <label for="crs">Vista</label>
-				</div>
+<!--				<div class="col-md-1">-->
+<!--					<input type="radio" name="funcType" id="crs" value="vista.php?task=upload"> <label for="crs">Vista</label>-->
+<!--				</div>-->
 
                 <div class="col-md-1">
-                    <input type="radio" name="funcType" id="diff" value="diff.php?task=upload"> <label for="diff">Diff</label>
+                    <input type="radio" name="funcType" id="diff" value="diff.php?task=upload"> <label for="diff">ROLE >< MATRIX</label>
                 </div>
 			</div>
 			<div class="form-group row">
