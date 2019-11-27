@@ -3,14 +3,21 @@ body {
   background: url("background.png") no-repeat center top;
   background-size: cover;
   color: #FFF;
+  font-size: 12px;
+  color: rgba(102, 51, 153, 0.9);
 }
+
+input, .btn{
+  color: rgba(102, 51, 153, 1) !important;
+}
+
 .page-content {
   padding: 160px 15px 0px;
 }
 
 body #my-iframe{
   background: rgba(255, 255, 255, 0.5);
-  width: 600px; border: 1px solid #000; padding: 15px; height: 300px;
+  width: 500px; border: 1px solid rgba(102, 51, 153, 1); padding: 15px; height: 200px;
 }
 
 
